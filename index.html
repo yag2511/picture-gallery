@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picture Gallery</title>
+
+  <!-- Fuentes (opcional: sin internet la página usa las fuentes del sistema) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!--
+    Estado de las categorías (solo CSS, sin JavaScript):
+    cada botón de la barra lateral es un <label> conectado a uno de estos radios ocultos.
+    El radio seleccionado decide qué sección se muestra (ver styles.css).
+  -->
+  <input type="radio" name="category" id="cat-career"  class="cat-radio" checked>
+  <input type="radio" name="category" id="cat-dreams"  class="cat-radio">
+  <input type="radio" name="category" id="cat-movies"  class="cat-radio">
+  <input type="radio" name="category" id="cat-singers" class="cat-radio">
+  <input type="radio" name="category" id="cat-hobbies" class="cat-radio">
+  <input type="radio" name="category" id="cat-photos"  class="cat-radio">
+
+  <!-- ===== ENCABEZADO ===== -->
+  <header class="site-header">
+    <h1 class="title">Picture <span>Gallery</span></h1>
+    <p class="subtitle">// galería personal</p>
+  </header>
+
+  <!-- ===== BARRA DE NAVEGACIÓN ===== -->
+  <nav class="navbar" aria-label="Navegación principal">
+    <!-- "Inicio" vuelve a la primera sección (Carrera) y sube al principio de la página -->
+    <label for="cat-career" class="nav-btn">Inicio</label>
+    <label for="cat-photos" class="nav-btn">Galería</label>
+    <button type="button" class="nav-btn" popovertarget="about">Sobre mí</button>
+  </nav>
+
+  <!-- ===== DISEÑO PRINCIPAL: barra lateral + contenido ===== -->
+  <main class="layout" id="top">
+
+    <!-- Columna izquierda: botones de categorías -->
+    <aside class="sidebar" aria-label="Categorías">
+      <h2 class="sidebar-title">Categorías</h2>
+      <label for="cat-career"  class="cat-btn btn-career"><span class="cat-icon">🎓</span> Carrera</label>
+      <label for="cat-dreams"  class="cat-btn btn-dreams"><span class="cat-icon">✨</span> Sueños</label>
+      <label for="cat-movies"  class="cat-btn btn-movies"><span class="cat-icon">🎬</span> Películas</label>
+      <label for="cat-singers" class="cat-btn btn-singers"><span class="cat-icon">🎤</span> Cantantes</label>
+      <label for="cat-hobbies" class="cat-btn btn-hobbies"><span class="cat-icon">🎮</span> Pasatiempos</label>
+      <label for="cat-photos"  class="cat-btn btn-photos"><span class="cat-icon">📸</span> Fotos</label>
+    </aside>
+
+    <!-- Columna derecha: secciones con texto e imágenes -->
+    <section class="content">
+
+      <!--
+        Secciones (solo se muestra la seleccionada).
+        Cada sección tiene su texto y una cuadrícula con sus imágenes.
+        Las rutas apuntan a la carpeta de cada sección y deben coincidir
+        exactamente con el nombre del archivo (mayúsculas, minúsculas y extensión).
+        El atributo onerror oculta el ícono de imagen rota si falta un archivo.
+      -->
+      <div class="panels">
+
+        <!-- ===== CARRERA ===== -->
+        <article class="panel panel-career">
+          <h3>Carrera</h3>
+          <p>
+            Estudio una <strong>doble titulación</strong>: <strong>Ingeniería en Sistemas Computacionales</strong>
+            e <strong>Ingeniería en Desarrollo de Videojuegos</strong>.
+          </p>
+          <p>Lo que más me gusta es el reto de crear software y experiencias interactivas desde cero.</p>
+
+          <div class="grid">
+            <figure class="frame" data-label="Imagen 1">
+              <img src="carrera/programacion-crear-juego.jpg" alt="Programación de un videojuego" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Programación</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 2">
+              <img src="carrera/Vj.png" alt="Dos desarrolladores trabajando en un videojuego" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Desarrollo de videojuegos</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 3">
+              <img src="carrera/9c4688a5d99d8456449d0795849df07e.jpg" alt="Procesador en una tarjeta de circuitos" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Hardware</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 4">
+              <img src="carrera/it-engineer-installing-hardware-equipment-development-facility-engineer-maintenance-computer-motherboard-electronic-repair-shop-technology-business-scaled.jpg" alt="Ingeniero instalando equipo de cómputo" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Mantenimiento de equipo</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 5">
+              <img src="carrera/cables.jpeg" alt="Armado de un cable de red T-568B" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Redes</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- ===== SUEÑOS ===== -->
+        <article class="panel panel-dreams">
+          <h3>Sueños</h3>
+          <ul>
+            <li>Viajar a muchos países (Alemania, Japón, Francia, España, etc.).</li>
+            <li>Crear mi propio videojuego y que sea un gran éxito.</li>
+            <li>Aprender 5 idiomas.</li>
+            <li>Dominar 7 lenguajes de programación.</li>
+            <li>Emprender un negocio.</li>
+          </ul>
+
+          <div class="grid">
+            <figure class="frame" data-label="Imagen 1">
+              <img src="suenos/Travel.jpeg" alt="Viajar por el mundo" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Viajar</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 2">
+              <img src="suenos/v4-460px-Make-a-Video-Game-from-Scratch-Step-4-Version-3.jpg" alt="Crear un videojuego desde cero" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Mi propio videojuego</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 3">
+              <img src="suenos/aprende-idiomas-siendo-flojo.jpg" alt="Aprender idiomas" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>5 idiomas</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 4">
+              <img src="suenos/maxresdefault.jpg" alt="Logos de lenguajes de programación" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>7 lenguajes de programación</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 5">
+              <img src="suenos/Consejos-para-montar-un-negocio-y-hacerse-emprendedor-en-Vitoria-Gasteiz.jpg" alt="Emprender un negocio" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Emprender un negocio</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- ===== PELÍCULAS ===== -->
+        <article class="panel panel-movies">
+          <h3>Películas favoritas</h3>
+          <ul>
+            <li>Pacific Rim</li>
+            <li>Transformers: El último caballero</li>
+            <li>Megalodón (The Meg)</li>
+            <li>Beekeeper</li>
+            <li>Homefront</li>
+          </ul>
+
+          <div class="grid">
+            <figure class="frame" data-label="Imagen 1">
+              <img src="peliculas/PacificRim.jpeg" alt="Póster de Pacific Rim" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Pacific Rim</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 2">
+              <img src="peliculas/Transformers.jpeg" alt="Póster de Transformers: El último caballero" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Transformers</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 3">
+              <img src="peliculas/Meg.jpg" alt="Póster de Megalodón" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Megalodón</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 4">
+              <img src="peliculas/Beekeeper.jpeg" alt="Póster de Beekeeper" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Beekeeper</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 5">
+              <img src="peliculas/HomeFront.jpeg" alt="Póster de Homefront" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Homefront</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- ===== CANTANTES ===== -->
+        <article class="panel panel-singers">
+          <h3>Cantantes y bandas</h3>
+          <ul>
+            <li>Bon Jovi</li>
+            <li>Scorpions</li>
+            <li>Arctic Monkeys</li>
+            <li>Guns N' Roses</li>
+            <li>Kiss</li>
+          </ul>
+
+          <div class="grid">
+            <figure class="frame" data-label="Imagen 1">
+              <img src="artistas/BonJovi.jpeg" alt="Bon Jovi" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Bon Jovi</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 2">
+              <img src="artistas/Scorpions.jpeg" alt="Scorpions" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Scorpions</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 3">
+              <img src="artistas/ArcticMonkeys.jpeg" alt="Arctic Monkeys" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Arctic Monkeys</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 4">
+              <img src="artistas/Gun'sNRoses.jpeg" alt="Guns N' Roses" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Guns N' Roses</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 5">
+              <img src="artistas/Kiss.jpeg" alt="Kiss" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Kiss</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- ===== PASATIEMPOS ===== -->
+        <article class="panel panel-hobbies">
+          <h3>Pasatiempos</h3>
+          <ul>
+            <li>Hacer deporte</li>
+            <li>Aprender idiomas</li>
+            <li>Jugar videojuegos</li>
+            <li>Manejar</li>
+            <li>Dedicarle tiempo a mi gata y peces</li>
+          </ul>
+
+          <div class="grid">
+            <figure class="frame" data-label="Imagen 1">
+              <img src="pasatiempos/la-importancia-del-deporte-para-tu-salud-1_0.jpg" alt="Hacer deporte" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Deporte</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 2">
+              <img src="pasatiempos/learning-languages.jpg" alt="Aprender idiomas" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Idiomas</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 3">
+              <img src="pasatiempos/Universidad-de-Talca-2022-01-27T091015.731.png" alt="Control de videojuegos frente a una pantalla" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Videojuegos</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 4">
+              <img src="pasatiempos/manejar.jpg" alt="Manejar" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Manejar</figcaption>
+            </figure>
+            <figure class="frame" data-label="Imagen 5">
+              <img src="pasatiempos/gato-mira-pez-pecera.jpg" alt="Gato mirando un pez en una pecera" loading="lazy" onerror="this.style.display='none'">
+              <figcaption>Mi gata y peces</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <!-- ===== FOTOS PERSONALES ===== -->
+        <article class="panel panel-photos" id="gallery">
+          <h3>Mis fotos</h3>
+          <div class="grid">
+            <figure class="frame" data-label="Foto 1">
+              <img src="images/Foto1.JPG" alt="Foto personal 1" loading="lazy" onerror="this.style.display='none'">
+            </figure>
+            <figure class="frame" data-label="Foto 2">
+              <img src="images/Foto2.JPG" alt="Foto personal 2" loading="lazy" onerror="this.style.display='none'">
+            </figure>
+            <figure class="frame" data-label="Foto 3">
+              <img src="images/Foto3.JPG" alt="Foto personal 3" loading="lazy" onerror="this.style.display='none'">
+            </figure>
+            <figure class="frame" data-label="Foto 4">
+              <img src="images/Foto4.JPG" alt="Foto personal 4" loading="lazy" onerror="this.style.display='none'">
+            </figure>
+            <figure class="frame" data-label="Foto 5">
+              <img src="images/Foto5.JPG" alt="Foto personal 5" loading="lazy" onerror="this.style.display='none'">
+            </figure>
+            <figure class="frame" data-label="Foto 6">
+              <img src="images/Foto6.JPG" alt="Foto personal 6" loading="lazy" onerror="this.style.display='none'">
+            </figure>
+            <figure class="frame" data-label="Foto 7">
+              <img src="images/Foto8.JPG" alt="Foto personal 7" loading="lazy" onerror="this.style.display='none'">
+            </figure>
+            <figure class="frame" data-label="Foto 8">
+              <img src="images/Foto9.JPG" alt="Foto personal 8" loading="lazy" onerror="this.style.display='none'">
+            </figure>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Ícono de información (abre la ventana "Sobre mí" con el popover nativo de HTML) -->
+      <div class="info-wrap">
+        <button type="button" class="info-btn" popovertarget="about">
+          <svg class="info-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 12a8 8 0 1 1-2.34-5.66" />
+            <polyline points="20 4 20 9 15 9" />
+          </svg>
+          <span>Información</span>
+        </button>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ===== VENTANA EMERGENTE "SOBRE MÍ" ===== -->
+  <div id="about" class="about" popover>
+    <h3>Sobre mí</h3>
+    <p>
+      ¡Hola! Soy <strong>Santyago Amozurrutia Monter</strong>, Soy un estudiante apasionado por el aprendizaje y la tecnología. Actualmente estudio en dos universidades, lo que me permite tener una formación integral. Me encanta mantenerme activo, aprender idiomas como inglés y alemán, y disfrutar de momentos con mi gata, familia y amigos.
+      Esta es mi galería personal.
+    </p>
+    <button type="button" class="close-btn" popovertarget="about" popovertargetaction="hide">Cerrar</button>
+  </div>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer class="site-footer">
+    <p>© 2026 Santyago Amozurrutia Monter · Picture Gallery</p>
+  </footer>
+
+</body>
+</html>
